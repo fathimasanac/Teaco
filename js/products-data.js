@@ -18,11 +18,11 @@ window.TEACO_PRODUCTS_DATA = {
     seoDesc: 'TEACO Tea range for consistent everyday preparation across cafés, tea shops and food-service businesses in the UAE.',
     heroLabel: 'TEACO DISTRIBUTORS',
     heroDescription: 'Our tea range for consistent everyday preparation across cafés, tea shops and food-service businesses.',
-    overview: 'TEACO Tea is a carefully blended black tea developed for consistent preparation in commercial food-service environments. Made with 80% Assam tea and 20% Kenya tea, the blend delivers a strong, full-bodied cup suited to milk tea, karak tea, and everyday tea service.\n\nPacked in a 5 KG commercial pack, TEACO Tea is suitable for cafés, tea shops, restaurants, hotels, catering businesses, and other high-volume tea-service operations.',
+    overview: 'TEACO Tea is a carefully blended black tea developed for consistent preparation in commercial food-service environments. It delivers a strong, full-bodied cup suited to different tea-service preferences.\n\nPacked in a 5 KG commercial pack, TEACO Tea is designed for cafeterias, tea shops, restaurants, hotels, catering businesses, and other high-volume tea-service operations.',
     highlights: [
-      { title: '80% Assam + 20% Kenya', desc: 'Balanced black tea blend' },
-      { title: 'Strong & Full-Bodied', desc: 'Suitable for milk tea and karak' },
-      { title: '5 kg Commercial Pack', desc: 'Designed for professional food-service use' }
+      { title: 'PREMIUM BLEND FOR CAFETERIAS', desc: 'Designed for consistent, professional tea service' },
+      { title: 'SAMOVAR TEA', desc: 'Suitable for traditional Samovar tea preparation' },
+      { title: 'KARAK TEA', desc: 'Suitable for rich, strong Karak tea' }
     ],
     suitableFor: [
       { title: 'Cafés', type: 'cafe' },
@@ -49,9 +49,9 @@ window.TEACO_PRODUCTS_DATA = {
     heroDescription: 'Black tea powder suited for everyday tea preparation across food-service businesses.',
     overview: 'FICO Tea is a black tea powder designed for everyday tea preparation and commercial food-service use. It provides a familiar, strong tea character suitable for regular tea service across cafés, tea shops, restaurants, cafeterias, and other businesses.\n\nAvailable in a 5 KG commercial pack, FICO Tea is a practical choice for businesses looking for a dependable everyday black tea option for regular-volume service.',
     highlights: [
-      { title: 'Everyday Black Tea', desc: 'A practical black tea powder for regular tea preparation.' },
-      { title: 'Strong Tea Character', desc: 'Suitable for everyday milk tea and black tea service.' },
-      { title: '5 kg Commercial Pack', desc: 'Designed for regular food-service and business use.' }
+      { title: 'EVERYDAY BLACK TEA', desc: 'A practical black tea powder for regular tea preparation.' },
+      { title: 'SAMAVAR TEA', desc: 'Suitable for traditional Samavar tea preparation.' },
+      { title: 'KARAK TEA', desc: 'Suitable for rich, strong Karak tea.' }
     ],
     suitableFor: [
       { title: 'Cafeterias', type: 'cafeteria' },
@@ -154,7 +154,7 @@ window.TEACO_PRODUCTS_DATA = {
       {
         id: 'coffee-beans',
         name: 'Coffee Beans',
-        image: 'Assets/Products/coffee-beans.jpg',
+        image: 'Assets/Products/coffee-beans.png',
         imageAlt: 'Freshly Roasted Coffee Beans',
         description: 'Whole coffee beans for cafés, restaurants, hotels and other food-service businesses.',
         highlights: [
@@ -165,7 +165,7 @@ window.TEACO_PRODUCTS_DATA = {
       {
         id: 'coffee-powder',
         name: 'Coffee Powder',
-        image: 'Assets/Products/coffee-powder.jpg',
+        image: 'Assets/Products/coffee-powder.png',
         imageAlt: 'Finely Ground Coffee Powder',
         description: 'Ready-to-use ground coffee for cafés, restaurants, hotels and other food-service businesses.',
         highlights: [
@@ -183,7 +183,7 @@ window.TEACO_PRODUCTS_DATA = {
     route: '/products/paper-cups',
     cardDesc: 'Paper cups for cafés, tea shops, restaurants, catering businesses and everyday beverage service.',
     cardCta: 'View Product →',
-    image: 'Assets/Products/paper-cups.jpg',
+    image: 'Assets/Products/paper-cups.png',
     imageAlt: 'Eco-friendly Paper Beverage Cups',
     seoTitle: 'Paper Cups Supplier in UAE | TEACO Distributors',
     seoDesc: 'Paper cups for cafés, tea shops, restaurants, catering businesses and everyday beverage service in Dubai and the UAE.',

@@ -7,8 +7,8 @@ window.TEACO_CONFIG = {
   phoneDisplay: '+971 50 901 3234 / +971 56 667 2737',
   phoneRaw: '+971509013234',
   whatsappUrl: 'https://wa.me/971509013234',
-  email: 'ajmalacm@gmail.com',
-  emailUrl: 'mailto:ajmalacm@gmail.com',
+  email: 'teacouae00@gmail.com',
+  emailUrl: 'mailto:teacouae00@gmail.com',
   location: 'Fico Foods & Packaging, Ajman Free Zone, Gate No. 1',
   companyName: 'Teaco'
 };
