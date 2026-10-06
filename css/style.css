@@ -353,10 +353,10 @@ h1, h2, h3, h4, .font-serif {
 }
 
 .brand-logo-text {
-  font-family: var(--font-ramillas);
-  font-size: clamp(0.85rem, 1vw, 1.05rem);
+  font-family: var(--font-manrope);
+  font-size: clamp(1.125rem, 1.4vw, 1.375rem);
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #FFFFFF;
   margin-left: 0.15rem;
@@ -3075,8 +3075,8 @@ h1, h2, h3, h4, .font-serif {
   }
 
   .brand-logo-text {
-    font-size: clamp(0.8125rem, 3.5vw, 0.95rem);
-    letter-spacing: 0.14em;
+    font-size: clamp(0.95rem, 3.2vw, 1.125rem);
+    letter-spacing: 0.08em;
   }
 
   .brand-logo img {
@@ -3198,8 +3198,8 @@ h1, h2, h3, h4, .font-serif {
 
 @media (max-width: 480px) {
   .brand-logo-text {
-    font-size: 0.8125rem;
-    letter-spacing: 0.12em;
+    font-size: 0.9375rem;
+    letter-spacing: 0.06em;
   }
 
   .brand-logo img {

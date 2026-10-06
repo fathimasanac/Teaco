@@ -7,8 +7,8 @@ window.TEACO_CONFIG = {
   phoneDisplay: '+971 50 901 3234 / +971 56 667 2737',
   phoneRaw: '+971509013234',
   whatsappUrl: 'https://wa.me/971509013234',
-  email: 'teacouae00@gmail.com',
-  emailUrl: 'mailto:teacouae00@gmail.com',
+  email: 'teacodistributor@gmail.com',
+  emailUrl: 'mailto:teacodistributor@gmail.com',
   location: 'Fico Foods & Packaging, Ajman Free Zone, Gate No. 1',
   companyName: 'Teaco'
 };
@@ -61,41 +61,105 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Quote / Inquiry Form Interactive Feedback ---
+  // --- Quote / Inquiry Form Submission Handling (FormSubmit AJAX - JSON) ---
   if (quoteForm) {
-    quoteForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const submitBtn = quoteForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerHTML;
-      
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = `
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="10" stroke-dasharray="32" stroke-dashoffset="10">
-            <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="0.8s" repeatCount="indefinite"/>
-          </circle>
-        </svg>
-        Sending Request...
-      `;
+    quoteForm.addEventListener('submit', async (e) => {
+      // 1. Validate form first: if required fields are missing/invalid, exit & let browser show validation messages
+      if (!quoteForm.checkValidity()) {
+        return;
+      }
 
-      setTimeout(() => {
-        const formPanel = quoteForm.closest('.contact-form-panel') || quoteForm.parentElement;
-        formPanel.innerHTML = `
-          <div style="text-align: center; padding: 2.5rem 1rem;">
-            <div style="width: 64px; height: 64px; border-radius: 50%; background-color: var(--about-teaco-gold); color: #18201C; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; box-shadow: 0 8px 24px rgba(217, 169, 40, 0.35);">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-            </div>
-            <h3 style="font-family: var(--font-ramillas); font-size: 1.75rem; margin-bottom: 0.75rem; color: #F7F3E8;">Sample Request Received</h3>
-            <p style="color: #D8D4C7; max-width: 460px; margin: 0 auto 1.75rem auto; font-family: var(--font-sans-modern); font-size: 0.95rem; line-height: 1.6;">
-              Thank you. Your enquiry has been received. The TEACO DISTRIBUTORS team will contact you shortly.
-            </p>
-            <button type="button" onclick="location.reload()" class="btn btn-gold" style="font-size: 0.8125rem;">Submit Another Request</button>
-          </div>
+      e.preventDefault();
+
+      const formHeaderBox = quoteForm.previousElementSibling;
+      const successContainer = document.getElementById('sample-success-message');
+      const submitBtn = quoteForm.querySelector('button[type="submit"]');
+      const originalBtnContent = submitBtn ? submitBtn.innerHTML : 'Request A Sample &rarr;';
+      
+      // Remove existing error message if present
+      const existingError = quoteForm.querySelector('.form-error-alert');
+      if (existingError) {
+        existingError.remove();
+      }
+
+      // 2. Disable button & show Sending state
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" stroke-dasharray="32" stroke-dashoffset="10">
+              <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="0.8s" repeatCount="indefinite"/>
+            </circle>
+          </svg>
+          Sending Request...
         `;
-      }, 1000);
+      }
+
+      // 3. Collect form values into JSON payload
+      const formDataPayload = {
+        name: document.getElementById('form-name')?.value.trim() || '',
+        company: document.getElementById('form-company')?.value.trim() || '',
+        'business-type': document.getElementById('form-business-type')?.value || '',
+        location: document.getElementById('form-location')?.value.trim() || '',
+        product: document.getElementById('form-product')?.value || '',
+        quantity: document.getElementById('form-quantity')?.value.trim() || '',
+        phone: document.getElementById('form-phone')?.value.trim() || '',
+        email: document.getElementById('form-email')?.value.trim() || '',
+        message: document.getElementById('form-message')?.value.trim() || '',
+        _subject: 'New TEACO Sample Request',
+        _captcha: 'false'
+      };
+
+      try {
+        // 4. Send asynchronous JSON POST request to FormSubmit AJAX endpoint
+        const response = await fetch('https://formsubmit.co/ajax/teacodistributor@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(formDataPayload)
+        });
+
+        const result = await response.json().catch(() => ({}));
+
+        if (response.ok && (result.success === 'true' || result.success === true || response.status === 200)) {
+          // 5. On Success: Hide form, show TEACO Thank You message
+          if (formHeaderBox) formHeaderBox.style.display = 'none';
+          quoteForm.style.display = 'none';
+          if (successContainer) successContainer.style.display = 'block';
+
+          // Reset form fields & restore button state for future submission
+          quoteForm.reset();
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnContent;
+          }
+
+          // 6. Keep Thank You visible for EXACTLY 6 seconds (6000ms), then restore form
+          setTimeout(() => {
+            if (successContainer) successContainer.style.display = 'none';
+            if (formHeaderBox) formHeaderBox.style.display = 'block';
+            quoteForm.style.display = 'block';
+          }, 6000);
+        } else {
+          throw new Error(result.message || `Server returned status: ${response.status}`);
+        }
+      } catch (err) {
+        console.error('Form submission error:', err);
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnContent;
+        }
+
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'form-error-alert';
+        errorDiv.style.cssText = 'background: rgba(220, 53, 69, 0.15); border: 1px solid rgba(220, 53, 69, 0.4); color: #ff8b8b; padding: 0.85rem 1rem; border-radius: 6px; margin-bottom: 1.25rem; font-size: 0.875rem; text-align: center;';
+        errorDiv.innerHTML = `
+          <strong>Submission failed.</strong> Please check your connection and try again, or contact us directly via WhatsApp/phone.
+        `;
+        quoteForm.prepend(errorDiv);
+      }
     });
   }
 

@@ -42,7 +42,7 @@
         "logo": "Assets/Logo/teaco - Logo.png",
         "description": "Premium tea built for business. High-quality commercial black tea supplier serving the United Arab Emirates.",
         "telephone": "+971 56 667 2737",
-        "email": "teacouae00@gmail.com",
+        "email": "teacodistributor@gmail.com",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Dubai",
@@ -55,7 +55,7 @@
         "name": "Teaco Commercial Tea Supply",
         "image": "Assets/Logo/teaco - Logo.png",
         "telephone": "+971 56 667 2737",
-        "email": "teacouae00@gmail.com",
+        "email": "teacodistributor@gmail.com",
         "priceRange": "$$",
         "address": {
           "@type": "PostalAddress",
@@ -577,7 +577,7 @@
             <!-- Left Column: CEO Portrait -->
             <div class="ceo-image-wrapper">
               <div class="ceo-image-frame">
-                <img src="Assets/images/CEO%20photo.png"
+                <img src="Assets/images/CEO%20photo.jpg"
                   alt="Ajmal Sahadoon - Chief Executive Officer, Teaco Distributors" loading="lazy" width="700"
                   height="700">
                 <div class="ceo-image-overlay"></div>
@@ -653,15 +653,19 @@
                 <p class="form-subtitle">Tell us about your business and the products you are interested in.</p>
               </div>
 
-              <form id="quote-form">
+              <form id="quote-form" action="https://formsubmit.co/ajax/teacodistributor@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New TEACO Sample Request">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label-dark" for="form-name">Name *</label>
-                    <input type="text" id="form-name" class="form-input-dark" placeholder="Your Full Name" required>
+                    <input type="text" id="form-name" name="name" class="form-input-dark" placeholder="Your Full Name" required>
                   </div>
                   <div class="form-group">
                     <label class="form-label-dark" for="form-company">Company *</label>
-                    <input type="text" id="form-company" class="form-input-dark" placeholder="Business / Company Name"
+                    <input type="text" id="form-company" name="company" class="form-input-dark" placeholder="Business / Company Name"
                       required>
                   </div>
                 </div>
@@ -669,7 +673,7 @@
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label-dark" for="form-business-type">Business Type *</label>
-                    <select id="form-business-type" class="form-select-dark" required>
+                    <select id="form-business-type" name="business-type" class="form-select-dark" required>
                       <option value="" disabled selected>Select Type...</option>
                       <option value="Café">Café</option>
                       <option value="Tea Shop">Tea Shop</option>
@@ -682,14 +686,14 @@
                   </div>
                   <div class="form-group">
                     <label class="form-label-dark" for="form-location">Location *</label>
-                    <input type="text" id="form-location" class="form-input-dark" placeholder="City / Emirate" required>
+                    <input type="text" id="form-location" name="location" class="form-input-dark" placeholder="City / Emirate" required>
                   </div>
                 </div>
 
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label-dark" for="form-product">Product Interest *</label>
-                    <select id="form-product" class="form-select-dark" required>
+                    <select id="form-product" name="product" class="form-select-dark" required>
                       <option value="" disabled selected>Select Product...</option>
                       <option value="Teaco Tea">Teaco Tea</option>
                       <option value="Fico Tea">Fico Tea</option>
@@ -705,7 +709,7 @@
                   </div>
                   <div class="form-group">
                     <label class="form-label-dark" for="form-quantity">Quantity / Requirement</label>
-                    <input type="text" id="form-quantity" class="form-input-dark"
+                    <input type="text" id="form-quantity" name="quantity" class="form-input-dark"
                       placeholder="e.g. monthly requirement, quantity, or cup size">
                   </div>
                 </div>
@@ -713,17 +717,17 @@
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label-dark" for="form-phone">Phone / WhatsApp *</label>
-                    <input type="tel" id="form-phone" class="form-input-dark" placeholder="+971 50 901 3234" required>
+                    <input type="tel" id="form-phone" name="phone" class="form-input-dark" placeholder="+971 50 901 3234" required>
                   </div>
                   <div class="form-group">
                     <label class="form-label-dark" for="form-email">Email *</label>
-                    <input type="email" id="form-email" class="form-input-dark" placeholder="name@company.com" required>
+                    <input type="email" id="form-email" name="email" class="form-input-dark" placeholder="name@company.com" required>
                   </div>
                 </div>
 
                 <div class="form-group form-group-full">
                   <label class="form-label-dark" for="form-message">Message / Additional Requirements</label>
-                  <textarea id="form-message" class="form-textarea-dark" rows="3"
+                  <textarea id="form-message" name="message" class="form-textarea-dark" rows="3"
                     placeholder="Tell us what you need..."></textarea>
                 </div>
 
@@ -731,6 +735,18 @@
                   Request A Sample &rarr;
                 </button>
               </form>
+
+              <div id="sample-success-message" style="display: none; text-align: center; padding: 2.5rem 1rem;">
+                <div style="width: 64px; height: 64px; border-radius: 50%; background-color: var(--about-teaco-gold); color: #18201C; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; box-shadow: 0 8px 24px rgba(217, 169, 40, 0.35);">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <h3 style="font-family: var(--font-ramillas); font-size: 1.75rem; margin-bottom: 0.75rem; color: #F7F3E8;">Sample Request Received</h3>
+                <p style="color: #D8D4C7; max-width: 460px; margin: 0 auto 1.75rem auto; font-family: var(--font-sans-modern); font-size: 0.95rem; line-height: 1.6;">
+                  Thank you. Your enquiry has been received. The TEACO DISTRIBUTORS team will contact you shortly.
+                </p>
+              </div>
             </div>
 
             <!-- RIGHT PANEL: Location, Map & Direct Contact Card -->
@@ -792,7 +808,7 @@
                     <polyline points="22,6 12,13 2,6"></polyline>
                   </svg>
                   <div class="contact-detail-text-col">
-                    <a href="mailto:teacouae00@gmail.com">teacouae00@gmail.com</a>
+                    <a href="mailto:teacodistributor@gmail.com">teacodistributor@gmail.com</a>
                     <span class="detail-sub-label">Email</span>
                   </div>
                 </div>
@@ -894,7 +910,7 @@
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
-              <a href="mailto:teacouae00@gmail.com">teacouae00@gmail.com</a>
+              <a href="mailto:teacodistributor@gmail.com">teacodistributor@gmail.com</a>
             </p>
             <div class="footer-whatsapp-wrapper">
               <a href="https://wa.me/971509013234" target="_blank" rel="noopener noreferrer" class="whatsapp-text-link">
