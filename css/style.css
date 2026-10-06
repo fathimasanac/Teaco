@@ -2275,9 +2275,10 @@ h1, h2, h3, h4, .font-serif {
 
 .ceo-quote-text {
   font-family: var(--font-ramillas);
-  font-size: clamp(1.125rem, 1.5vw, 1.35rem);
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
   font-weight: 400;
-  line-height: 1.55;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
   color: #F7F3E8;
   font-style: italic;
   margin: 0;
@@ -3004,7 +3005,9 @@ h1, h2, h3, h4, .font-serif {
   }
 
   .ceo-quote-text {
-    font-size: 1.35rem;
+    font-size: clamp(1rem, 3.8vw, 1.15rem);
+    font-weight: 400;
+    line-height: 1.6;
   }
   
   .about-bg-leaf-left {
@@ -3036,9 +3039,23 @@ h1, h2, h3, h4, .font-serif {
     display: none;
   }
   
-  .why-bg-leaf-left, .why-bg-leaf-right {
-    opacity: 0.12;
-    width: 260px;
+  .why-bg-leaf-left {
+    opacity: 0.22;
+    width: 220px;
+    max-width: 55vw;
+    left: -40px;
+    top: 10%;
+    transform: none;
+  }
+
+  .why-bg-leaf-right {
+    opacity: 0.22;
+    width: 220px;
+    max-width: 55vw;
+    right: -40px;
+    top: auto;
+    bottom: 5%;
+    transform: scaleX(-1);
   }
   
   .product-media-side, .fico-placeholder-media {
@@ -3141,6 +3158,22 @@ h1, h2, h3, h4, .font-serif {
   .why-feature-col {
     flex: 0 0 100%;
     max-width: 280px;
+  }
+
+  .why-bg-leaf-left {
+    width: 195px;
+    max-width: 50vw;
+    left: -35px;
+    top: 6%;
+    opacity: 0.20;
+  }
+
+  .why-bg-leaf-right {
+    width: 195px;
+    max-width: 50vw;
+    right: -35px;
+    bottom: 3%;
+    opacity: 0.20;
   }
 
   .form-row {
