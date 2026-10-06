@@ -1435,11 +1435,11 @@ h1, h2, h3, h4, .font-serif {
 /* Sections Common Headings */
 .pdetail-section-title {
   font-family: var(--font-ramillas);
-  font-size: clamp(1.875rem, 3.5vw, 3rem);
+  font-size: clamp(2.125rem, 2.2vw + 1.2rem, 2.875rem);
   line-height: 1.15;
   font-weight: 400;
   color: #123B2A;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   letter-spacing: -0.01em;
   position: relative;
   display: inline-block;
@@ -1448,10 +1448,10 @@ h1, h2, h3, h4, .font-serif {
 .pdetail-section-title::after {
   content: '';
   display: block;
-  width: 40px;
+  width: 36px;
   height: 2px;
   background-color: var(--about-teaco-gold);
-  margin-top: 0.4rem;
+  margin-top: 0.35rem;
 }
 
 /* Product Overview Section */
@@ -2841,11 +2841,12 @@ h1, h2, h3, h4, .font-serif {
 }
 
 .footer-logo .brand-logo-text {
-  font-family: var(--font-ramillas);
+  font-family: var(--font-manrope);
   color: #D9A928;
   font-size: clamp(0.85rem, 1vw, 1.05rem);
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .footer-tagline {
@@ -3129,20 +3130,46 @@ h1, h2, h3, h4, .font-serif {
     height: 100vh;
     background-color: var(--bg-dark-editorial);
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     padding: 6rem 2.5rem 2.5rem 2.5rem;
-    gap: 1.75rem;
+    gap: 0.25rem;
     transition: var(--transition-smooth);
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
   }
 
   .nav-links.active {
     right: 0;
   }
 
+  .nav-links li {
+    width: 100%;
+    display: flex;
+  }
+
   .nav-links a {
     color: #FFFFFF !important;
     font-size: clamp(0.9375rem, 3vw, 1.05rem);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 48px;
+    padding: 0.6rem 0;
+    box-sizing: border-box;
+  }
+
+  .nav-links a.btn-nav-cta {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 48px;
+    margin-top: 0.85rem;
+    padding: 0.6rem 1.35rem !important;
+  }
+
+  .nav-links a.btn-nav-cta::after {
+    display: none !important;
   }
 
   .mobile-nav-toggle {
